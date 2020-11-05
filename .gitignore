@@ -1,0 +1,5 @@
+cdk.out
+.env
+NOTES.md
+source.bat
+*.sh
