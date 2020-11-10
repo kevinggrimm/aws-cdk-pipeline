@@ -2,7 +2,7 @@ from aws_cdk import core
 
 from .pipeline_demo_stack import PipelineDemoStack
 
-class WebServiceStage(core.Stack):
+class WebServiceStage(core.Stage):
 
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
