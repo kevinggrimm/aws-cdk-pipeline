@@ -40,5 +40,12 @@ class PipelineStack(core.Stack):
         # Can be a different account and region
         # As long as you have permissions it will work
         # Easy ability to deploy to different regions, accounts
-        pipeline.add_application_stage(WebServiceStage(self, 'Pre-prod', 
+        pre_prod_stage = pipeline.add_application_stage(WebServiceStage(self, 'Pre-prod', 
+          env=core.Environment(account="893961191302", region="us-west-1")))
+
+        pre_prod_stage.add_manual_approval_action(
+          action_name='PromoteToProd'
+        )
+
+        pipeline.add_application_stage(WebServiceStage(self, 'Prod',
           env=core.Environment(account="893961191302", region="us-west-1")))
